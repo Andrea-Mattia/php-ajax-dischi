@@ -11,7 +11,27 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    
+   
+    <div class="df" id="app">
+            <header class="main-header">
+                <div class="container">
+                    <img class="logo" src="./img/logo.png" alt="spotify-logo">
+                </div>
+            </header>
+            <main class="main-content">
+                <div class="card-container container df">
+                    <div v-for="album in albums" class="card df">
+                        <img :src="album.poster" :alt="album.title">
+                        <div class="album-info">
+                            <h3>{{ album.title }}</h3>
+                            <p>{{ album.author }}</p>
+                            <h3>{{ album.year }}</h3>
+                            <p>{{ album.genre }}</p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
 
     <!-- JS -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
