@@ -45,7 +45,33 @@
         ]
     ];
 
+$artist = empty($_GET['artist']) ? false : $_GET['artist'];
+
+$albums = [];
+if ($artist == false || $artist == 'all') {
+    $albums = $database;
+} else {
+    foreach ($database as $album) {
+        if ($album['author'] == $artist) {
+            $albums[] = $album;
+        }
+    }
+}
+
+$artists = [];
+foreach ($database as $album) {
+    if (! in_array($album['author'], $artists)) {
+        $artists[] = $album['author'];
+    }
+}
+
+$results = [
+    'albums' => $albums,
+    'artists' => $artists
+];
+
+
 header('Content-type: application/json');
 
-echo json_encode($database);
+echo json_encode($results);
 ?>

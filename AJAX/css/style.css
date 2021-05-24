@@ -36,6 +36,11 @@ img {
   background: #132431;
 }
 
+.main-header .container {
+  align-items: center;
+  justify-content: space-between;
+}
+
 .logo {
   height: 50px;
 }

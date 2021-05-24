@@ -14,8 +14,20 @@
    
     <div class="df" id="app">
             <header class="main-header">
-                <div class="container">
+                <div class="container df">
                     <img class="logo" src="./img/logo.png" alt="spotify-logo">
+                    <div class="search">
+                        <label for="search">Search by artist: </label>
+                        <select 
+                            name="search"  
+                            id="search" 
+                            v-model="filterArtist" 
+                            @change="getFiltered"
+                        >
+                            <option selected value="all">All</option>
+                            <option v-for="artist in artists" :value="artist">{{ artist }}</option>
+                        </select>
+                    </div>
                 </div>
             </header>
             <main class="main-content">
